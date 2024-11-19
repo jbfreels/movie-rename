@@ -1,8 +1,13 @@
 from themoviedb import TMDb
 from dotenv import load_dotenv
+import yaml
 
 load_dotenv()
 
+with open("config.yml", "r") as f:
+    config = yaml.safe_load(f)
+
+print(config)
 
 if __name__ == "__main__":
     tmdb = TMDb()
