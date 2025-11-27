@@ -1,14 +1,14 @@
 # action
-#   copy - copy the output media 
+#   copy - copy the output media
 #   move - move the output media
 #   test - show what will happen, but do not do anything
-action: copy
+action: test
 
 # movie_format
 #   this path can include your output folder
 #   {n} - movie name
-#   {y} - movie year 
-movie_format: "tests/data/output/{n} ({y})"
+#   {y} - movie year
+movie_format: "test/output/{n} ({y})"
 
 # remove_empty_input
 #   if the input folder is empty after 'move'
@@ -18,11 +18,11 @@ movie_format: "tests/data/output/{n} ({y})"
 remove_empty_input: true
 
 # clean
-#   options for 'cleaning' the input folder. 
+#   options for 'cleaning' the input folder.
 #   when enabled, the input folder will be scrubbed
 #   of all files that meet the requirements outlined
 #   below.
-clean: 
+clean:
   # enabled
   #   turn the 'clean' feature on/off
   #   true - 'clean' the input folder
@@ -30,56 +30,68 @@ clean:
   enabled: true
   # min_size
   #   remove ALL files less than the specified size
-  #   in MegaBytes
+  #   in MB
   min_size: 20
   # max_size
   #   ALWAYS keep files larger than the specified
-  #   size in MegaBytes
+  #   size in MB
   max_size: 100
   # exts
-  #   List of extensions to ALWAYS delete, over-rides 
+  #   List of extensions to ALWAYS delete, over-rides
   #   'min_size' and 'max_size'.  These files will
   #   always be removed!
   exts:
-    - ".jpg"
-    - ".png"
-    - ".gif"
-    - ".nfo"
-    - ".txt"
-    - ".exe"
+    - .jpg
+    - .png
+    - .gif
+    - .nfo
+    - .txt
+    - .exe
 
 # movie_exts
 #   filename extensions for media files
 movie_exts:
-  - ".avi"
-  - ".mp4"
-  - ".m4v"
-  - ".mkv"
+  - .avi
+  - .mp4
+  - .m4v
+  - .mkv
+
+subtitles:
+  # enabled
+  #   true - look for subtitle files and move/copy them
+  #   false - do not process subtitle files
+  enabled: true
+  # exts
+  #   filename extensions for subtitle files
+  exts:
+    - .srt
+    - .sub
+    - .idx
 
 # warnings
 #   enable specific warnings, output level WARNING
 #   required to see warning messages
 warnings:
   # invalid_url
-  #   show warning when output filename contains 
+  #   show warning when output filename contains
   #   characters that shouldn't be in a URL
   invalid_url: true
   invalid_url_chars:
-    - ";"
-    - "/"
+    - ;
+    - /
     - "?"
     - ":"
     - "@"
     - "&"
     - "="
-    - "+"
-    - "$"
+    - +
+    - $
     - ","
     - "{"
     - "}"
     - "|"
-    - "\\"
-    - "^"
+    - \
+    - ^
     - "["
     - "]"
     - "`"
@@ -90,7 +102,7 @@ warnings:
 logger:
   # file
   #   logfile options
-  file: 
+  file:
     # level
     #   log importance level to display
     #       DEBUG < INFO < ERROR
